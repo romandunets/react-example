@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ site.title }}{{# page }} | {{ page.title }}{{/ page }}</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/cosmic-custom.css" rel="stylesheet">
+  </head>
+
+  <body class="hidden">
+    <div id="app">{{{ reactMarkup }}}</div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/clean-blog.min.js"></script>
+    <script src="/dist/bundle.js"></script>
+  </body>
+</html>
