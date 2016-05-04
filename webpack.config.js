@@ -1,19 +1,21 @@
-var path = require('path');
-
+if(process.env.NODE_ENV === 'development'){
+  var loaders = ['react-hot','babel']
+} else {
+  var loaders = ['babel']
+}
 module.exports = {
-  entry: path.resolve(__dirname, '../src/client/scripts/client.js'),
+  devtool: 'eval',
+  entry: './app-client.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js'
+    path: __dirname + '/public/dist',
+    filename: 'bundle.js',
+    publicPath: '/dist/'
   },
-
   module: {
-    loaders: [
-      {
-        test: /src\/.+.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loaders: loaders,
+      exclude: /node_modules/
+    }]
   }
 };
