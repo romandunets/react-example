@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import Layout from "./pages/Layout";
 import Groups from "./pages/Groups";
+import Notes from "./pages/Notes";
 
 const app = document.getElementById('app');
 
@@ -11,6 +12,7 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Groups}></IndexRoute>
+      <Route path="notes" component={Notes}></Route>
     </Route>
   </Router>,
 app);
