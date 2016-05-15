@@ -12,6 +12,7 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Groups}></IndexRoute>
+      <Route path="groups" component={Groups}></Route>
       <Route path="notes" component={Notes}></Route>
     </Route>
   </Router>,
