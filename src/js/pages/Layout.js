@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 export default class Layout extends React.Component {
   render() {
@@ -17,6 +18,8 @@ export default class Layout extends React.Component {
           <Link to="notes">My Notes</Link>
           <Link to="profile">My Profile</Link>
         </div>
+
+        <Footer />
       </div>
     );
   }
