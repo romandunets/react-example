@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export default class Navigation extends React.Component {
   render() {
@@ -17,12 +18,18 @@ export default class Navigation extends React.Component {
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#">Groups</a></li>
-              <li><a href="#">Notes</a></li>
+              <li>
+                <Link to="groups">Groups</Link>
+              </li>
+              <li>
+                <Link to="notes">Notes</Link>
+              </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">My profile</a></li>
+              <li>
+                <Link to="profile">My Profile</Link>
+              </li>
             </ul>
           </div>
         </div>
