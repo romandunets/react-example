@@ -10,7 +10,9 @@ export default class Layout extends React.Component {
       <div>
         <Navigation />
 
-        {this.props.children}
+        <div id="content" class="container text-center">
+          {this.props.children}
+        </div>
 
         <Footer />
       </div>
