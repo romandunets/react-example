@@ -2,6 +2,18 @@ import React from "react";
 import { Link } from "react-router";
 
 export default class Navigation extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      collapsed: true,
+    };
+  }
+
+  toggleCollapse() {
+    const collapsed = !this.state.collapsed;
+    this.setState({collapsed});
+  }
+
   render() {
     return (
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -18,17 +30,17 @@ export default class Navigation extends React.Component {
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li>
-                <Link to="groups">Groups</Link>
+              <li activeClassName="active" onlyActiveOnIndex={true}>
+                <Link to="groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
               </li>
-              <li>
-                <Link to="notes">Notes</Link>
+              <li activeClassName="active">
+                <Link to="notes" onClick={this.toggleCollapse.bind(this)}>Notes</Link>
               </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <Link to="profile">My Profile</Link>
+              <li activeClassName="active">
+                <Link to="profile" onClick={this.toggleCollapse.bind(this)}>My Profile</Link>
               </li>
             </ul>
           </div>
