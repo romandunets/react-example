@@ -15,11 +15,18 @@ export default class Navigation extends React.Component {
   }
 
   render() {
+    const { location } = this.props;
+    const { collapsed } = this.state;
+    const groupsClass = location.pathname.match(/^\/groups/) ? "active" : "";
+    const notesClass = location.pathname.match(/^\/notes/) ? "active" : "";
+    const profileClass = location.pathname.match(/^\/profile/) ? "active" : "";
+    const navClass = collapsed ? "collapse" : "";
+
     return (
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={this.toggleCollapse.bind(this)} onlyActiveOnIndex={true}>
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -30,16 +37,16 @@ export default class Navigation extends React.Component {
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li activeClassName="active" onlyActiveOnIndex={true}>
+              <li class={groupsClass}>
                 <Link to="groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
               </li>
-              <li activeClassName="active">
+              <li class={notesClass}>
                 <Link to="notes" onClick={this.toggleCollapse.bind(this)}>Notes</Link>
               </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-              <li activeClassName="active">
+              <li class={profileClass}>
                 <Link to="profile" onClick={this.toggleCollapse.bind(this)}>My Profile</Link>
               </li>
             </ul>
