@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={this.toggleCollapse.bind(this)} onlyActiveOnIndex={true}>
+            <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)} onlyActiveOnIndex={true}>
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -35,7 +35,7 @@ export default class Navigation extends React.Component {
             <a class="navbar-brand" href="#">KnookApp</a>
           </div>
 
-          <div id="navbar" class="navbar-collapse collapse">
+          <div id="navbar" class={ "navbar-collapse " + navClass }>
             <ul class="nav navbar-nav">
               <li class={groupsClass}>
                 <Link to="groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
