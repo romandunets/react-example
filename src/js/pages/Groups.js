@@ -4,7 +4,6 @@ export default class Groups extends React.Component {
   render() {
     return (
       <div>
-        <h2>My Groups</h2>
         <table class="table">
           <tbody>
             <tr>
