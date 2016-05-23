@@ -1,32 +1,14 @@
 import React from "react";
 
 import Note from "../components/Note";
+import NoteStore from "../stores/NoteStore"
 
 export default class Notes extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      notes: [
-        {
-          id: 1,
-          name: "English lesson 1",
-          group: "Studies",
-          updated_at: "23 minutes ago"
-        },
-        {
-          id: 2,
-          name: "Germany lesson 1",
-          group: "Studies",
-          updated_at: "2 days ago"
-        },
-        {
-          id: 3,
-          name: "Railroad modeling baseboard",
-          group: "Hobby",
-          updated_at: "about week ago"
-        }
-      ]
-    }
+      notes: todoStore.getAll();
+    };
   }
 
   render() {
