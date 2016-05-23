@@ -1,27 +1,45 @@
 import React from "react";
 
+import Note from "../components/Note";
+
 export default class Notes extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      notes: [
+        {
+          id: 1,
+          name: "English lesson 1",
+          group: "Studies",
+          updated_at: "23 minutes ago"
+        },
+        {
+          id: 2,
+          name: "Germany lesson 1",
+          group: "Studies",
+          updated_at: "2 days ago"
+        },
+        {
+          id: 3,
+          name: "Railroad modeling baseboard",
+          group: "Hobby",
+          updated_at: "about week ago"
+        }
+      ]
+    }
+  }
+
   render() {
+    const { notes } = this.state;
+
+    const NoteComponents = notes.map((note) => {
+      return <Note key={note.id} {...note} />;
+    });
+
     return (
       <div>
         <table class="table">
-          <tbody>
-            <tr>
-              <td>English lesson 1</td>
-              <td>Studies</td>
-              <td>23 minutes ago</td>
-            </tr>
-            <tr>
-              <td>English lesson 2</td>
-              <td>Studies</td>
-              <td>2 days ago</td>
-            </tr>
-            <tr>
-              <td>Railroad modeling</td>
-              <td>Hobby</td>
-              <td>about week ago</td>
-            </tr>
-          </tbody>
+          <tbody>{NoteComponents}</tbody>
         </table>
       </div>
     );
