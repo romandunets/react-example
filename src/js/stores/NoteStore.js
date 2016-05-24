@@ -25,6 +25,19 @@ class NoteStore extends EventEmitter {
     ];
   }
 
+  createNote(name, group) {
+    const id = Date.now();
+
+    this.notes.push({
+      id,
+      name,
+      group,
+      updated_at: "Just now"
+    });
+
+    this.emit("change");
+  }
+
   getAll() {
     return this.notes;
   }
@@ -32,4 +45,4 @@ class NoteStore extends EventEmitter {
 
 const noteStore = new NoteStore;
 
-export default todoStore;
+export default noteStore;

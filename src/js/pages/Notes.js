@@ -7,8 +7,16 @@ export default class Notes extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      notes: todoStore.getAll();
+      notes: NoteStore.getAll()
     };
+  }
+
+  componentWillMount() {
+    NoteStore.on("change", () => {
+      this.setState({
+        notes: NoteStore.getAll()
+      });
+    });
   }
 
   render() {
