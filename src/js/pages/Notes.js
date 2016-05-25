@@ -1,20 +1,20 @@
 import React from "react";
 
 import Note from "../components/Note";
-import NoteStore from "../stores/NoteStore"
+import NotesStore from "../stores/NotesStore"
 
 export default class Notes extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      notes: NoteStore.getAll()
+      notes: NotesStore.getAll()
     };
   }
 
   componentWillMount() {
-    NoteStore.on("change", () => {
+    NotesStore.on("change", () => {
       this.setState({
-        notes: NoteStore.getAll()
+        notes: NotesStore.getAll()
       });
     });
   }
