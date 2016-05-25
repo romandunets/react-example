@@ -1,5 +1,7 @@
 import { EventEmitter } from "events";
 
+import dispatcher from "../dispatcher";
+
 class NoteStore extends EventEmitter {
   constructor() {
     super()
@@ -41,8 +43,18 @@ class NoteStore extends EventEmitter {
   getAll() {
     return this.notes;
   }
+
+  handleActions(action) {
+    switch(action.type) {
+      case "CREATE_NOTE": {
+        this.createNote(action.name, action.group);
+      }
+    }
+    console.log("Notetore received an action ", action);
+  }
 }
 
 const noteStore = new NoteStore;
+dispatcher.register(noteStore.handleActions.bind(noteStore));
 
 export default noteStore;
