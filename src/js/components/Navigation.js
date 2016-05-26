@@ -26,7 +26,7 @@ export default class Navigation extends React.Component {
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)} onlyActiveOnIndex={true}>
+            <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)}>
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Note from "../components/Note";
+import * as NotesActions from "../actions/NotesActions"
 import NotesStore from "../stores/NotesStore"
 
 export default class Notes extends React.Component {
@@ -19,6 +20,10 @@ export default class Notes extends React.Component {
     });
   }
 
+  createNote() {
+    NotesActions.createNote(Date.now(), "Undefined");
+  }
+
   render() {
     const { notes } = this.state;
 
@@ -28,6 +33,7 @@ export default class Notes extends React.Component {
 
     return (
       <div>
+        <button onClick={this.createNote.bind(this)}>Add note</button>
         <table class="table">
           <tbody>{NoteComponents}</tbody>
         </table>
