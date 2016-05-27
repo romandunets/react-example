@@ -7,21 +7,28 @@ import NotesStore from "../stores/NotesStore"
 export default class Notes extends React.Component {
   constructor(props) {
     super();
+    this.getNotes = this.getNotes.bind(this);
     this.state = {
       notes: NotesStore.getAll()
     };
   }
 
   componentWillMount() {
-    NotesStore.on("change", () => {
-      this.setState({
-        notes: NotesStore.getAll()
-      });
+    NotesStore.on("change", this.getNotes);
+  }
+
+  componentWillUnmount() {
+    NotesStore.removeListener("change", this.getNotes);
+  }
+
+  getNotes() {
+    this.setState({
+      notes: NotesStore.getAll(),
     });
   }
 
-  createNote() {
-    NotesActions.createNote(Date.now(), "Undefined");
+  reloadNotes() {
+    NotesActions.reloadNotes();
   }
 
   render() {
@@ -33,7 +40,7 @@ export default class Notes extends React.Component {
 
     return (
       <div>
-        <button onClick={this.createNote.bind(this)}>Add note</button>
+        <button onClick={this.reloadNotes.bind(this)}>Reload!</button>
         <table class="table">
           <tbody>{NoteComponents}</tbody>
         </table>

@@ -48,6 +48,12 @@ class NoteStore extends EventEmitter {
     switch(action.type) {
       case "CREATE_NOTE": {
         this.createNote(action.name, action.group);
+        break;
+      }
+      case "RECEIVE_NOTES": {
+        this.notes = action.notes;
+        this.emit("change");
+        break;
       }
     }
     console.log("Notetore received an action ", action);
