@@ -1,1 +1,1 @@
-# ReactJS example
+# React + Flux skeleton
