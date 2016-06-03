@@ -1,13 +1,11 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { Component } from 'react';
 
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from './Navigation';
+import Footer from './Footer';
 
 export default class Layout extends React.Component {
   render() {
     const { location } = this.props;
-
     return (
       <div>
         <Navigation location={location} />

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from 'react';
 
-import Note from "../components/Note";
-import * as NotesActions from "../actions/NotesActions"
-import NotesStore from "../stores/NotesStore"
+import Note from '../components/Note';
+import * as NotesActions from '../actions/NotesActions';
+import NotesStore from '../stores/NotesStore';
 
-export default class Notes extends React.Component {
-  constructor(props) {
+class NotesListPage extends Component {
+  constructor() {
     super();
     this.getNotes = this.getNotes.bind(this);
     this.state = {
@@ -48,3 +48,5 @@ export default class Notes extends React.Component {
     );
   }
 }
+
+export default NotesListPage;

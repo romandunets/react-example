@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from 'react';
 
-export default class Groups extends React.Component {
+class GroupsListPage extends Component {
   render() {
     return (
       <div>
@@ -27,3 +27,5 @@ export default class Groups extends React.Component {
     );
   }
 }
+
+export default GroupsListPage;
