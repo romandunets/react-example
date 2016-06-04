@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Note from '../components/Note';
-import * as NotesActions from '../actions/NotesActions';
-import NotesStore from '../stores/NotesStore';
+import Note from '../../components/notes/Note';
+import * as NotesActions from '../../actions/NotesActions';
+import NotesStore from '../../stores/NotesStore';
 
 class NotesListPage extends Component {
   constructor() {

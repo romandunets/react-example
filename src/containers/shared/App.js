@@ -5,17 +5,17 @@ import Layout from './Layout';
 import HomePage from '../home/HomePage';
 import ProfilePage from '../users/ProfilePage';
 import GroupsListPage from '../groups/GroupsListPage';
-import NoteListPage from '../notes/NoteListPage';
+import NotesListPage from '../notes/NotesListPage';
 
 class App extends Component {
   render() {
     return (
       <Router history={browserHistory}>
         <Route path="/" component={Layout}>
-          <IndexRoute component={Home}></IndexRoute>
-          <Route path="groups" component={Groups}></Route>
-          <Route path="notes" component={Notes}></Route>
-          <Route path="profile" component={Profile}></Route>
+          <IndexRoute component={HomePage}></IndexRoute>
+          <Route path="groups" component={GroupsListPage}></Route>
+          <Route path="notes" component={NotesListPage}></Route>
+          <Route path="profile" component={ProfilePage}></Route>
         </Route>
       </Router>
     );
