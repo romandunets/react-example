@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Layout from './containers/Layout';
@@ -17,3 +17,4 @@ export default (store) => {
     </Route>
   </Router>
 };
+*/
