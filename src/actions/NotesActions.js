@@ -16,9 +16,6 @@ export function deleteNote(id) {
 }
 
 export function reloadNotes() {
-  // axios("http://someurl.com/somedataendpoint").then((data) => {
-  //   console.log("got the data!", data);
-  // })
   dispatcher.dispatch({type: "FETCH_NOTES"});
   setTimeout(() => {
     dispatcher.dispatch({type: "RECEIVE_NOTES", notes: [
