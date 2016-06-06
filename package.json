@@ -24,6 +24,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --content-base src --inline --hot"
+    "start": "webpack-dev-server --content-base src --inline --hot",
+    "api": "json-server --watch data/db.json --port 8000"
   }
 }
