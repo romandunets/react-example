@@ -16,4 +16,8 @@ export default keyMirror({
   UPDATE_NOTE_REQUEST: null,
   UPDATE_NOTE_SUCCESS: null,
   UPDATE_NOTE_FAILURE: null,
+
+  DELETE_NOTE_REQUEST: null,
+  DELETE_NOTE_SUCCESS: null,
+  DELETE_NOTE_FAILURE: null
 });
