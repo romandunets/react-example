@@ -1,8 +1,8 @@
-import dispatcher from "../dispatcher";
+import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
 
 export function createNote(name, group) {
-  dispatcher.dispatch({
+  AppDispatcher.dispatch({
     type: ActionTypes.CREATE_NOTE_REQUEST,
     name,
     group
@@ -10,16 +10,16 @@ export function createNote(name, group) {
 }
 
 export function deleteNote(id) {
-  dispatcher.dispatch({
+  AppDispatcher.dispatch({
     type: ActionTypes.DELETE_NOTE_REQUEST,
     id
   });
 }
 
 export function reloadNotes() {
-  dispatcher.dispatch({type: ActionTypes.LIST_NOTES_REQUEST});
+  AppDispatcher.dispatch({type: ActionTypes.LIST_NOTES_REQUEST});
   setTimeout(() => {
-    dispatcher.dispatch({type: ActionTypes.LIST_NOTES_SUCCESS, notes: [
+    AppDispatcher.dispatch({type: ActionTypes.LIST_NOTES_SUCCESS, notes: [
       {
         id: 1,
         name: "English lesson 2",

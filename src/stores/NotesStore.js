@@ -1,6 +1,6 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from 'events';
 
-import dispatcher from "../dispatcher";
+import AppDispatcher from '../dispatcher/AppDispatcher';
 
 class NoteStore extends EventEmitter {
   constructor() {
@@ -61,6 +61,6 @@ class NoteStore extends EventEmitter {
 }
 
 const noteStore = new NoteStore;
-dispatcher.register(noteStore.handleActions.bind(noteStore));
+AppDispatcher.register(noteStore.handleActions.bind(noteStore));
 
 export default noteStore;
