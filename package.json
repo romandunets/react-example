@@ -4,6 +4,7 @@
   "description": "React + Flux application skeleton",
   "main": "webpack.config.js",
   "dependencies": {
+    "axios": "^0.15.2",
     "flux": "^2.1.1",
     "keymirror": "^0.1.1",
     "react": "^0.14.6",
