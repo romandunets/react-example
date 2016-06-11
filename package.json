@@ -27,6 +27,6 @@
   },
   "scripts": {
     "start": "webpack-dev-server --content-base src --inline --hot",
-    "api": "json-server --watch data/db.json --port 8000"
+    "api": "json-server --watch data/db.json --port 3001"
   }
 }

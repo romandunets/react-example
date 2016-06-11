@@ -27,6 +27,11 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'API_HOST': JSON.stringify('http://0.0.0.0:3001')
+      }
+    })
   ],
   devServer: {
     port: 3000,
