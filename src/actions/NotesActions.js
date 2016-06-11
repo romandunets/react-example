@@ -1,5 +1,26 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
+import * as NoteAPI from '../api/NoteApi';
+
+export function listNotes() {
+  AppDispatcher.dispatch({
+    type: ActionTypes.LIST_NOTES_REQUEST
+  });
+
+  NoteAPI.listUsers()
+    .then(function (response) {
+      AppDispatcher.dispatch({
+        type: ActionTypes.LIST_NOTES_SUCCESS,
+        notes: response.data
+      });
+    })
+    .catch(function (error) {
+      AppDispatcher.dispatch({
+        type: ActionTypes.LIST_NOTES_FAILURE,
+        error: error
+      });
+    });
+}
 
 export function createNote(name, group) {
   AppDispatcher.dispatch({
