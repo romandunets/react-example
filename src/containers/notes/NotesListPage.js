@@ -26,13 +26,10 @@ class NotesListPage extends Component {
   }
 
   onChange() {
+    console.log("CHANGE");
     this.setState({
       notes: NotesStore.getNotes()
     });
-  }
-
-  reloadNotes() {
-    NotesActions.reloadNotes();
   }
 
   render() {
@@ -44,7 +41,6 @@ class NotesListPage extends Component {
 
     return (
       <div>
-        <button onClick={this.reloadNotes.bind(this)}>Reload!</button>
         <table class="table">
           <tbody>{NoteComponents}</tbody>
         </table>

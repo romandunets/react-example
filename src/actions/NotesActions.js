@@ -4,19 +4,19 @@ import * as NoteApi from '../api/NoteApi';
 
 export function listNotes() {
   AppDispatcher.dispatch({
-    type: ActionTypes.LIST_NOTES_REQUEST
+    actionType: ActionTypes.LIST_NOTES_REQUEST
   });
 
   NoteApi.listNotes()
     .then(function (response) {
       AppDispatcher.dispatch({
-        type: ActionTypes.LIST_NOTES_SUCCESS,
+        actionType: ActionTypes.LIST_NOTES_SUCCESS,
         notes: response.data
       });
     })
     .catch(function (error) {
       AppDispatcher.dispatch({
-        type: ActionTypes.LIST_NOTES_FAILURE,
+        actionType: ActionTypes.LIST_NOTES_FAILURE,
         error: error
       });
     });
@@ -24,7 +24,7 @@ export function listNotes() {
 
 export function createNote(name, group) {
   AppDispatcher.dispatch({
-    type: ActionTypes.CREATE_NOTE_REQUEST,
+    actionType: ActionTypes.CREATE_NOTE_REQUEST,
     name,
     group
   });
@@ -32,15 +32,15 @@ export function createNote(name, group) {
 
 export function deleteNote(id) {
   AppDispatcher.dispatch({
-    type: ActionTypes.DELETE_NOTE_REQUEST,
+    actionType: ActionTypes.DELETE_NOTE_REQUEST,
     id
   });
 }
 
 export function reloadNotes() {
-  AppDispatcher.dispatch({type: ActionTypes.LIST_NOTES_REQUEST});
+  AppDispatcher.dispatch({actionType: ActionTypes.LIST_NOTES_REQUEST});
   setTimeout(() => {
-    AppDispatcher.dispatch({type: ActionTypes.LIST_NOTES_SUCCESS, notes: [
+    AppDispatcher.dispatch({actionType: ActionTypes.LIST_NOTES_SUCCESS, notes: [
       {
         id: 1,
         name: "English lesson 2",

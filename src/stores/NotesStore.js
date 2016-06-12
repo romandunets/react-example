@@ -31,11 +31,12 @@ class NoteStore extends EventEmitter {
 const noteStore = new NoteStore();
 
 noteStore.dispatchToken = AppDispatcher.register(action => {
-  console.log(action);
+  console.log(ActionTypes.LIST_NOTES_SUCCESS);
   switch(action.actionType) {
     case ActionTypes.LIST_NOTES_SUCCESS:
+      console.log("HERE");
       setNotes(action.notes);
-      ContactStore.emitChange();
+      noteStore.emitChange();
       break;
     default:
   }
