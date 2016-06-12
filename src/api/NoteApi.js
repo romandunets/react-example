@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 function getClient() {
   var config = {
     baseURL: process.env.API_HOST
@@ -7,5 +9,5 @@ function getClient() {
 }
 
 export function listNotes() {
-  getClient().get(`/notes`);
+  return getClient().get(`/notes`);
 }

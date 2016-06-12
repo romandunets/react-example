@@ -7,23 +7,27 @@ import NotesStore from '../../stores/NotesStore';
 class NotesListPage extends Component {
   constructor() {
     super();
-    this.getNotes = this.getNotes.bind(this);
     this.state = {
-      notes: NotesStore.getAll()
-    };
+      notes: []
+    }
+    this.onChange = this.onChange.bind(this);
   }
 
   componentWillMount() {
-    NotesStore.on("change", this.getNotes);
+    NotesStore.addChangeListener(this.onChange);
+  }
+
+  componentDidMount() {
+    NotesActions.listNotes();
   }
 
   componentWillUnmount() {
-    NotesStore.removeListener("change", this.getNotes);
+    NotesStore.removeChangeListener(this.onChange);
   }
 
-  getNotes() {
+  onChange() {
     this.setState({
-      notes: NotesStore.getAll(),
+      notes: NotesStore.getNotes()
     });
   }
 

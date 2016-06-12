@@ -1,66 +1,44 @@
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import ActionTypes from '../constants/ActionTypes';
 import { EventEmitter } from 'events';
 
-import AppDispatcher from '../dispatcher/AppDispatcher';
+const CHANGE_EVENT = 'change';
+
+let _notes = [];
+
+function setNotes(notes) {
+  _notes = notes;
+}
 
 class NoteStore extends EventEmitter {
-  constructor() {
-    super()
-    this.notes= [
-      {
-        id: 1,
-        name: "English lesson 1",
-        group: "Studies",
-        updated_at: "23 minutes ago"
-      },
-      {
-        id: 2,
-        name: "Germany lesson 1",
-        group: "Studies",
-        updated_at: "2 days ago"
-      },
-      {
-        id: 3,
-        name: "Railroad modeling baseboard",
-        group: "Hobby",
-        updated_at: "about week ago"
-      }
-    ];
+  emitChange() {
+    this.emit(CHANGE_EVENT);
   }
 
-  createNote(name, group) {
-    const id = Date.now();
-
-    this.notes.push({
-      id,
-      name,
-      group,
-      updated_at: "Just now"
-    });
-
-    this.emit("change");
+  addChangeListener(callback) {
+    this.on(CHANGE_EVENT, callback)
   }
 
-  getAll() {
-    return this.notes;
+  removeChangeListener(callback) {
+    this.removeListener(CHANGE_EVENT, callback)
   }
 
-  handleActions(action) {
-    switch(action.type) {
-      case "CREATE_NOTE": {
-        this.createNote(action.name, action.group);
-        break;
-      }
-      case "RECEIVE_NOTES": {
-        this.notes = action.notes;
-        this.emit("change");
-        break;
-      }
-    }
-    console.log("Notetore received an action ", action);
+  getNotes() {
+    return _notes;
   }
 }
 
-const noteStore = new NoteStore;
-AppDispatcher.register(noteStore.handleActions.bind(noteStore));
+const noteStore = new NoteStore();
+
+noteStore.dispatchToken = AppDispatcher.register(action => {
+  console.log(action);
+  switch(action.actionType) {
+    case ActionTypes.LIST_NOTES_SUCCESS:
+      setNotes(action.notes);
+      ContactStore.emitChange();
+      break;
+    default:
+  }
+});
 
 export default noteStore;

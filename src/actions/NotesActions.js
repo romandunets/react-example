@@ -1,13 +1,13 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
-import * as NoteAPI from '../api/NoteApi';
+import * as NoteApi from '../api/NoteApi';
 
 export function listNotes() {
   AppDispatcher.dispatch({
     type: ActionTypes.LIST_NOTES_REQUEST
   });
 
-  NoteAPI.listUsers()
+  NoteApi.listNotes()
     .then(function (response) {
       AppDispatcher.dispatch({
         type: ActionTypes.LIST_NOTES_SUCCESS,
