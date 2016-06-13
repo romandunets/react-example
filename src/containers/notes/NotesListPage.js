@@ -26,7 +26,6 @@ class NotesListPage extends Component {
   }
 
   onChange() {
-    console.log("CHANGE");
     this.setState({
       notes: NotesStore.getNotes()
     });
@@ -40,11 +39,9 @@ class NotesListPage extends Component {
     });
 
     return (
-      <div>
-        <table class="table">
-          <tbody>{NoteComponents}</tbody>
-        </table>
-      </div>
+      <table class="table">
+        <tbody>{NoteComponents}</tbody>
+      </table>
     );
   }
 }

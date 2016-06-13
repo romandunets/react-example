@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Note extends Component {
   render() {
     const { name, group, updatedAt } = this.props;
+
     return (
       <tr>
         <td>{name}</td>
