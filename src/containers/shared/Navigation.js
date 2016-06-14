@@ -32,7 +32,7 @@ class Navigation extends Component {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">KnookApp</a>
+            <Link to="/" className="navbar-brand">KnookApp</Link>
           </div>
 
           <div id="navbar" class={ "navbar-collapse " + navClass }>
