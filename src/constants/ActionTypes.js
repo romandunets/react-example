@@ -1,6 +1,10 @@
 import keyMirror from 'keymirror';
 
 export default keyMirror({
+  LIST_GROUPS_REQUEST: null,
+  LIST_GROUPS_SUCCESS: null,
+  LIST_GROUPS_FAILURE: null,
+
   LIST_NOTES_REQUEST: null,
   LIST_NOTES_SUCCESS: null,
   LIST_NOTES_FAILURE: null,
