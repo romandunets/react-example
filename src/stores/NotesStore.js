@@ -23,7 +23,7 @@ class NoteStore extends EventEmitter {
     this.removeListener(CHANGE_EVENT, callback)
   }
 
-  getNotes() {
+  listNotes() {
     return _notes;
   }
 }

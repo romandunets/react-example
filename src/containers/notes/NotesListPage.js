@@ -27,7 +27,7 @@ class NotesListPage extends Component {
 
   onChange() {
     this.setState({
-      notes: NotesStore.getNotes()
+      notes: NotesStore.listNotes()
     });
   }
 
