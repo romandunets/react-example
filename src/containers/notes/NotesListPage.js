@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Note from '../../components/notes/Note';
+import NoteListItem from '../../components/notes/NoteListItem';
 import * as NotesActions from '../../actions/NotesActions';
 import NotesStore from '../../stores/NotesStore';
 
@@ -35,7 +35,7 @@ class NotesListPage extends Component {
     const { notes } = this.state;
 
     const NoteComponents = notes.map((note) => {
-      return <Note key={note.id} {...note} />;
+      return <NoteListItem key={note.id} {...note} />;
     });
 
     return (

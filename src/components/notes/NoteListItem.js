@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Note extends Component {
+class NoteListItem extends Component {
   render() {
     const { name, group, updatedAt } = this.props;
 
@@ -14,4 +14,4 @@ class Note extends Component {
   }
 }
 
-export default Note;
+export default NoteListItem;
