@@ -4,19 +4,39 @@
       "id": 1,
       "name": "English lesson 2",
       "group": "Studies",
-      "updated_at": "56 minutes ago"
+      "updatedAt": "56 minutes ago"
     },
     {
       "id": 2,
-      "name": "Germany lesson 2",
+      "name": "German lesson 2",
       "group": "Studies",
-      "updated_at": "3 days ago"
+      "updatedAt": "3 days ago"
     },
     {
       "id": 3,
       "name": "Railroad modeling scenery",
       "group": "Hobby",
-      "updated_at": "about week ago"
+      "updatedAt": "about week ago"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "name": "English",
+      "description": "This is group for English language.",
+      "notesCount": "1"
+    },
+    {
+      "id": 2,
+      "name": "German",
+      "description": "This is group for German language.",
+      "notesCount": "1"
+    },
+    {
+      "id": 3,
+      "name": "Hobby",
+      "description": "This is group for Hobby.",
+      "notesCount": "1"
     }
   ]
 }
