@@ -28,16 +28,16 @@ class NoteStore extends EventEmitter {
   }
 }
 
-const noteStore = new NoteStore();
+const notesStore = new NoteStore();
 
-noteStore.dispatchToken = AppDispatcher.register(action => {
+notesStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_NOTES_SUCCESS:
       setNotes(action.notes);
-      noteStore.emitChange();
+      notesStore.emitChange();
       break;
     default:
   }
 });
 
-export default noteStore;
+export default notesStore;
