@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class GroupListItem extends Component {
   render() {
-    const { name, group, updatedAt } = this.props;
+    const { name, description, notesCount } = this.props;
 
     return (
       <tr>

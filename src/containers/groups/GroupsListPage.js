@@ -18,7 +18,7 @@ class GroupsListPage extends Component {
   }
 
   componentDidMount() {
-    NotesActions.listNotes();
+    GroupsActions.listGroups();
   }
 
   componentWillUnmount() {
@@ -35,7 +35,7 @@ class GroupsListPage extends Component {
     const { groups } = this.state;
 
     const GroupComponents = groups.map((group) => {
-      return <Group key={group.id} {...group} />;
+      return <GroupListItem key={group.id} {...group} />;
     });
 
     return (

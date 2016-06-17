@@ -33,7 +33,7 @@ const groupsStore = new GroupsStore();
 groupsStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_GROUPS_SUCCESS:
-      setNotes(action.groups);
+      setGroups(action.groups);
       groupsStore.emitChange();
       break;
     default:
