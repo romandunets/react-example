@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 
 class GroupsListPage extends Component {
   render() {
@@ -24,6 +24,58 @@ class GroupsListPage extends Component {
           </tbody>
         </table>
       </div>
+    );
+  }
+}
+
+export default GroupsListPage;*/
+
+
+
+import React, { Component } from 'react';
+
+import Group from '../../components/groups/Group';
+import * as GroupsActions from '../../actions/GroupsActions';
+import GroupsStore from '../../stores/GroupsStore';
+
+class GroupsListPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      groups: []
+    }
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    GroupsStore.addChangeListener(this.onChange);
+  }
+
+  componentDidMount() {
+    NotesActions.listNotes();
+  }
+
+  componentWillUnmount() {
+    GroupsStore.removeChangeListener(this.onChange);
+  }
+
+  onChange() {
+    this.setState({
+      groups: GroupsStore.listGroups()
+    });
+  }
+
+  render() {
+    const { groups } = this.state;
+
+    const GroupComponents = groups.map((group) => {
+      return <Group key={group.id} {...group} />;
+    });
+
+    return (
+      <table class="table">
+        <tbody>{GroupComponents}</tbody>
+      </table>
     );
   }
 }
