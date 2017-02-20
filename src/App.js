@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Layout from './Layout';
-import HomePage from '../home/HomePage';
-import ProfilePage from '../users/ProfilePage';
-import GroupsListPage from '../groups/GroupsListPage';
-import NotesListPage from '../notes/NotesListPage';
+import Layout from './components/shared/Layout';
+import HomePage from './pages/home/HomePage';
+import ProfilePage from './pages/users/ProfilePage';
+import GroupsListPage from './pages/groups/GroupsListPage';
+import NotesListPage from './pages/notes/NotesListPage';
 
 class App extends Component {
   render() {

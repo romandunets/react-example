@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './containers/shared/App';
+import App from './App';
 
 const app = document.getElementById('app');
 
