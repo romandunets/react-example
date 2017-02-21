@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import Navigation from './Navigation';
 import Footer from './Footer';
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
+  static propTypes = {
+    children: PropTypes.object,
+    location: PropTypes.object
+  };
+
   render() {
     const { location } = this.props;
+
     return (
       <div>
         <Navigation location={location} />
@@ -19,3 +25,5 @@ export default class Layout extends React.Component {
     );
   }
 }
+
+export default Layout;
