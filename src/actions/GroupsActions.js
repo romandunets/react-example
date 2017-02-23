@@ -1,13 +1,13 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
-import * as GroupApi from '../api/GroupApi';
+import groupApi from '../api/GroupApi';
 
 export function listGroups() {
   AppDispatcher.dispatch({
     actionType: ActionTypes.LIST_GROUPS_REQUEST
   });
 
-  GroupApi.listGroups()
+  groupApi.listGroups()
     .then(function (response) {
       AppDispatcher.dispatch({
         actionType: ActionTypes.LIST_GROUPS_SUCCESS,

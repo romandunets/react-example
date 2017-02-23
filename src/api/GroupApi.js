@@ -1,13 +1,9 @@
-import axios from 'axios';
+import Api from './Api';
 
-function getClient() {
-  var config = {
-    baseURL: process.env.API_HOST
-  };
-
-  return axios.create(config);
+class GroupApi extends Api {
+  static listGroups() {
+    return this.getClient().get('/groups');
+  }
 }
 
-export function listGroups() {
-  return getClient().get(`/groups`);
-}
+export default GroupApi;

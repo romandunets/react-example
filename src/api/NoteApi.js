@@ -1,13 +1,9 @@
-import axios from 'axios';
+import Api from './Api';
 
-function getClient() {
-  var config = {
-    baseURL: process.env.API_HOST
-  };
-
-  return axios.create(config);
+class NoteApi extends Api {
+  static listNotes() {
+    return this.getClient().get('/notes');
+  }
 }
 
-export function listNotes() {
-  return getClient().get(`/notes`);
-}
+export default NoteApi;
