@@ -28,3 +28,14 @@ export function createStore(spec) {
 
   return store;
 }
+
+export function contains(store, id, fields) {
+  var contains = false;
+  const item = store[id];
+
+  if (store[id]) {
+    contains = (fields) ? fields.every(field => item.hasOwnProperty(field)) : true;
+  }
+
+  return contains;
+}
