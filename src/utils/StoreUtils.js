@@ -39,3 +39,31 @@ export function contains(store, id, fields) {
 
   return contains;
 }
+
+export function merge(store, entities) {
+  for (const id in entities) {
+    if (entities.hasOwnProperty(id)) {
+      if (!store.hasOwnProperty(id)) {
+        store[id] = entities[id];
+      } else if (!areEqualShallow(store[id], entities[id])) {
+        store[id] = Object.assign({}, store[id], entities[id]);
+      }
+    }
+  }
+}
+
+function areEqualShallow(a, b) {
+  for(var key in a) {
+    if(!(key in b) || a[key] !== b[key]) {
+        return false;
+    }
+  }
+
+  for(var key in b) {
+    if(!(key in a) || a[key] !== b[key]) {
+        return false;
+    }
+  }
+  
+  return true;
+}
