@@ -12,3 +12,13 @@ This project is a basic web application based on the following technologies:
 * React Router
 * Babel
 * Webpack
+
+You can check all the dependencies in package.json. Mock REST API works on JSON server.
+
+## Features
+
+This project contains basic features to demostrate how React and Redux could be utilized in common situations:
+* Notes CRUD operations
+  * List all notes
+* (Note) groups CRUD operations
+  * List all groups
