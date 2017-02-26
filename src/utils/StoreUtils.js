@@ -20,11 +20,13 @@ export function createStore(spec) {
     }
   }, spec);
 
-  store.forEach((val, key) => {
-    if (typeof val === "function") {
-      store[key] = store[key].bind(store);
+  for (var property in store) {
+    if (store.hasOwnProperty(property)) {
+        if (typeof store[property] === "function") {
+          store[property] = store[property].bind(store);
+        }
     }
-  });
+  }
 
   return store;
 }

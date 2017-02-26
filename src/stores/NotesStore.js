@@ -1,43 +1,23 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
-import { EventEmitter } from 'events';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { createStore, merge } from '../utils/StoreUtils';
 
-const CHANGE_EVENT = 'change';
+const _notes = [];
 
-let _notes = [];
-
-function setNotes(notes) {
-  _notes = notes;
-}
-
-class NoteStore extends EventEmitter {
-  emitChange() {
-    this.emit(CHANGE_EVENT);
-  }
-
-  addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback)
-  }
-
-  removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback)
-  }
-
+const NoteStore = createStore({
   listNotes() {
     return _notes;
   }
-}
+});
 
-const notesStore = new NoteStore();
-
-notesStore.dispatchToken = AppDispatcher.register(action => {
+NoteStore.dispatchToken = AppDispatcher.register(action => {
+  console.log(action);
   switch(action.actionType) {
     case ActionTypes.LIST_NOTES_SUCCESS:
-      setNotes(action.notes);
-      notesStore.emitChange();
+      merge(_notes, action.notes);
+      NoteStore.emitChange();
       break;
-    default:
   }
 });
 
-export default notesStore;
+export default NoteStore;
