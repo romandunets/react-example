@@ -1,43 +1,22 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
-import { EventEmitter } from 'events';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import { createStore, merge } from '../utils/StoreUtils';
 
-const CHANGE_EVENT = 'change';
+const _groups = [];
 
-let _groups = [];
-
-function setGroups(groups) {
-  _groups = groups;
-}
-
-class GroupsStore extends EventEmitter {
-  emitChange() {
-    this.emit(CHANGE_EVENT);
-  }
-
-  addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback)
-  }
-
-  removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback)
-  }
-
+const GroupStore = createStore({
   listGroups() {
     return _groups;
   }
-}
+});
 
-const groupsStore = new GroupsStore();
-
-groupsStore.dispatchToken = AppDispatcher.register(action => {
+GroupStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_GROUPS_SUCCESS:
-      setGroups(action.groups);
-      groupsStore.emitChange();
+      merge(_groups, action.groups);
+      GroupStore.emitChange();
       break;
-    default:
   }
 });
 
-export default groupsStore;
+export default GroupStore;
