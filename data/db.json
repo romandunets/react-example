@@ -1,4 +1,18 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "test"
+    },
+    {
+      "id": 2,
+      "username": "james"
+    },
+    {
+      "id": 3,
+      "username": "alex"
+    }
+  ],
   "notes": [
     {
       "id": 1,
