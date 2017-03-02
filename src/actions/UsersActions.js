@@ -11,7 +11,7 @@ export function listUsers() {
     .then(function (response) {
       AppDispatcher.dispatch({
         actionType: ActionTypes.LIST_USERS_SUCCESS,
-        notes: response.data
+        users: response.data
       });
     })
     .catch(function (error) {
