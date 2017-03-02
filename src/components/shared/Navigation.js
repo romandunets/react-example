@@ -17,6 +17,7 @@ class Navigation extends Component {
   render() {
     const { location } = this.props;
     const { collapsed } = this.state;
+    const usersClass = location.pathname.match(/^\/users/) ? "active" : "";
     const groupsClass = location.pathname.match(/^\/groups/) ? "active" : "";
     const notesClass = location.pathname.match(/^\/notes/) ? "active" : "";
     const profileClass = location.pathname.match(/^\/profile/) ? "active" : "";
@@ -37,6 +38,9 @@ class Navigation extends Component {
 
           <div id="navbar" class={ "navbar-collapse " + navClass }>
             <ul class="nav navbar-nav">
+              <li class={usersClass}>
+                <Link to="users" onClick={this.toggleCollapse.bind(this)}>Users</Link>
+              </li>
               <li class={groupsClass}>
                 <Link to="groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
               </li>
