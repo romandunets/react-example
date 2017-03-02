@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import Layout from './components/shared/Layout';
 import HomePage from './pages/home/HomePage';
 import ProfilePage from './pages/users/ProfilePage';
+import UsersListPage from './pages/users/UsersListPage';
 import GroupsListPage from './pages/groups/GroupsListPage';
 import NotesListPage from './pages/notes/NotesListPage';
 
@@ -19,6 +20,7 @@ class App extends Component {
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={HomePage}></IndexRoute>
+          <Route path="users" component={UsersListPage}></Route>
           <Route path="groups" component={GroupsListPage}></Route>
           <Route path="notes" component={NotesListPage}></Route>
           <Route path="profile" component={ProfilePage}></Route>
