@@ -1,18 +1,6 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
 import groupApi from '../api/GroupApi';
-
-function dispatchAsync(promise, types) {
-  const { request, success, failure } = types;
-
-  AppDispatcher.dispatch(request);
-  promise
-    .then(response => AppDispatcher.dispatch({
-      actionType: success,
-      data: response.data
-    }))
-    .catch(error => AppDispatcher.dispatch(success, { error }));
-}
+import { dispatchAsync } from '../utils/ApiUtils';
 
 export function listGroups() {
   dispatchAsync(groupApi.listGroups(), {
