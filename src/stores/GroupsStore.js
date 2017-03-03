@@ -13,7 +13,7 @@ const GroupStore = createStore({
 GroupStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_GROUPS_SUCCESS:
-      merge(_groups, action.groups);
+      merge(_groups, action.data);
       GroupStore.emitChange();
       break;
   }
