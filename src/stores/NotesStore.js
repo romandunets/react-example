@@ -13,7 +13,7 @@ const NoteStore = createStore({
 NoteStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_NOTES_SUCCESS:
-      merge(_notes, action.notes);
+      merge(_notes, action.data);
       NoteStore.emitChange();
       break;
   }
