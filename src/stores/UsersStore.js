@@ -13,7 +13,7 @@ const UserStore = createStore({
 UserStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case ActionTypes.LIST_USERS_SUCCESS:
-      merge(_users, action.users);
+      merge(_users, action.data);
       UserStore.emitChange();
       break;
   }
