@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GroupListItem from './GroupListItems';
+import GroupListItem from './GroupListItem';
 
 class GroupList extends Component {
   render() {
