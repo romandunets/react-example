@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import GroupListItem from '../../components/groups/GroupListItem';
 import * as GroupsActions from '../../actions/GroupsActions';
 import GroupsStore from '../../stores/GroupsStore';
+import GroupList from '../../components/groups/GroupList';
 
 class GroupsListPage extends Component {
   constructor() {
@@ -34,14 +34,8 @@ class GroupsListPage extends Component {
   render() {
     const { groups } = this.state;
 
-    const GroupComponents = groups.map((group) => {
-      return <GroupListItem key={group.id} {...group} />;
-    });
-
     return (
-      <table class="table">
-        <tbody>{GroupComponents}</tbody>
-      </table>
+      <GroupList groups={ groups } />
     );
   }
 }
