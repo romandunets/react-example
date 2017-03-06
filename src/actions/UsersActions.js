@@ -9,3 +9,12 @@ export function listUsers() {
     failure: ActionTypes.LIST_USERS_FAILURE
   });
 }
+
+export function getUser() {
+  dispatchAsync(userApi.getUser(), {
+    request: ActionTypes.GET_USER_REQUEST,
+    success: ActionTypes.GET_USER_SUCCESS,
+    failure: ActionTypes.GET_USER_FAILURE
+  });
+}
+
