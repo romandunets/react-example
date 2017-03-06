@@ -2,15 +2,22 @@
   "users": [
     {
       "id": 1,
-      "username": "test"
+      "username": "admin",
+      "role": "admin"
     },
     {
       "id": 2,
-      "username": "james"
+      "username": "test",
+      "firstName": "First"
+      "lastName": "Last",
+      "role": "user"
     },
     {
       "id": 3,
-      "username": "alex"
+      "username": "james",
+      "firstName": "James",
+      "lastName": "Bond"
+      "role": "user"
     }
   ],
   "notes": [
