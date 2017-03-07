@@ -8,7 +8,7 @@
     {
       "id": 2,
       "username": "test",
-      "firstName": "First"
+      "firstName": "First",
       "lastName": "Last",
       "role": "user"
     },
@@ -16,7 +16,7 @@
       "id": 3,
       "username": "james",
       "firstName": "James",
-      "lastName": "Bond"
+      "lastName": "Bond",
       "role": "user"
     }
   ],
