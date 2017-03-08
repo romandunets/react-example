@@ -20,7 +20,10 @@ class App extends Component {
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={HomePage}></IndexRoute>
-          <Route path="users" component={UsersListPage}></Route>
+          <Route path="users">
+            <IndexRoute component={UsersListPage}></IndexRoute>
+            <Route path=":id" component={UserCardPage}></Route>
+          </Route>
           <Route path="groups" component={GroupsListPage}></Route>
           <Route path="notes" component={NotesListPage}></Route>
           <Route path="profile" component={ProfilePage}></Route>
