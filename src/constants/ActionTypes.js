@@ -5,6 +5,10 @@ export default keyMirror({
   LIST_USERS_SUCCESS: null,
   LIST_USERS_FAILURE: null,
 
+  GET_USER_REQUEST: null,
+  GET_USER_SUCCESS: null,
+  GET_USER_FAILURE: null,
+
   LIST_GROUPS_REQUEST: null,
   LIST_GROUPS_SUCCESS: null,
   LIST_GROUPS_FAILURE: null,
