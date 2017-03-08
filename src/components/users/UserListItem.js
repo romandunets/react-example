@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class UserListItem extends Component {
   render() {
-    const { username } = this.props;
+    const { id, username } = this.props;
 
     return (
       <tr>
-        <td>{username}</td>
+        <td><Link to={`/users/${id}`}>{ username }</Link></td>
       </tr>
     );
   }
