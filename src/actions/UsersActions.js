@@ -10,8 +10,8 @@ export function listUsers() {
   });
 }
 
-export function getUser() {
-  dispatchAsync(userApi.getUser(), {
+export function getUser(id) {
+  dispatchAsync(userApi.getUser(id), {
     request: ActionTypes.GET_USER_REQUEST,
     success: ActionTypes.GET_USER_SUCCESS,
     failure: ActionTypes.GET_USER_FAILURE

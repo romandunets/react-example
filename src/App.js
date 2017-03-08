@@ -5,6 +5,7 @@ import Layout from './components/shared/Layout';
 import HomePage from './pages/home/HomePage';
 import ProfilePage from './pages/users/ProfilePage';
 import UsersListPage from './pages/users/UsersListPage';
+import UserCardPage from './pages/users/UserCardPage';
 import GroupsListPage from './pages/groups/GroupsListPage';
 import NotesListPage from './pages/notes/NotesListPage';
 

@@ -18,7 +18,7 @@ class UsersCardPage extends Component {
   }
 
   componentDidMount() {
-    UsersActions.getUser();
+    UsersActions.getUser(this.props.params.id);
   }
 
   componentWillUnmount() {
