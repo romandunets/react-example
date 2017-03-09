@@ -39,13 +39,13 @@ class Navigation extends Component {
           <div id="navbar" class={ "navbar-collapse " + navClass }>
             <ul class="nav navbar-nav">
               <li class={usersClass}>
-                <Link to="users" onClick={this.toggleCollapse.bind(this)}>Users</Link>
+                <Link to="/users" onClick={this.toggleCollapse.bind(this)}>Users</Link>
               </li>
               <li class={groupsClass}>
-                <Link to="groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
+                <Link to="/groups" onClick={this.toggleCollapse.bind(this)}>Groups</Link>
               </li>
               <li class={notesClass}>
-                <Link to="notes" onClick={this.toggleCollapse.bind(this)}>Notes</Link>
+                <Link to="/notes" onClick={this.toggleCollapse.bind(this)}>Notes</Link>
               </li>
             </ul>
 
