@@ -9,3 +9,11 @@ export function listNotes() {
     failure: ActionTypes.LIST_NOTES_FAILURE
   });
 }
+
+export function getNote(id) {
+  dispatchAsync(noteApi.getNote(id), {
+    request: ActionTypes.GET_NOTE_REQUEST,
+    success: ActionTypes.GET_NOTE_SUCCESS,
+    failure: ActionTypes.GET_NOTE_FAILURE
+  });
+}
