@@ -6,7 +6,7 @@ class NoteList extends Component {
     const { notes } = this.props;
 
     const NoteListItems = notes.map((note) => {
-      return <NoteListItem key={note.id} {...note} />;
+      return <NoteListItem key={ note.id } {...note} />;
     });
 
     return (

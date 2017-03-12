@@ -4,7 +4,7 @@ import * as UsersActions from '../../actions/UsersActions';
 import UsersStore from '../../stores/UsersStore';
 import UserCard from '../../components/users/UserCard';
 
-class UsersCardPage extends Component {
+class UserCardPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,4 +40,4 @@ class UsersCardPage extends Component {
   }
 }
 
-export default UsersCardPage;
+export default UserCardPage;

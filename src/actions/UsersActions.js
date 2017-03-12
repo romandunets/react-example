@@ -17,4 +17,3 @@ export function getUser(id) {
     failure: ActionTypes.GET_USER_FAILURE
   });
 }
-
