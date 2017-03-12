@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import * as UsersActions from '../../actions/UsersActions';
 import UsersStore from '../../stores/UsersStore';
-import UserCard from '../../components/users/UserCard';
+import UserDetails from '../../components/users/UserDetails';
 
-class UserCardPage extends Component {
+class UserDetailsPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -35,9 +35,9 @@ class UserCardPage extends Component {
     const { user } = this.state;
 
     return (
-      <UserCard user={ user } />
+      <UserDetails user={ user } />
     );
   }
 }
 
-export default UserCardPage;
+export default UserDetailsPage;

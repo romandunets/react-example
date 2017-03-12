@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import * as UsersActions from '../../actions/UsersActions';
 import UsersStore from '../../stores/UsersStore';
-import UserCard from '../../components/users/UserCard';
+import UserDetails from '../../components/users/UserDetails';
 
 class ProfilePage extends Component {
   constructor() {
@@ -37,7 +37,7 @@ class ProfilePage extends Component {
     return (
       <div>
         <h1>My Profile</h1>
-        <UserCard user={ user } />
+        <UserDetails user={ user } />
       </div>
     );
   }
