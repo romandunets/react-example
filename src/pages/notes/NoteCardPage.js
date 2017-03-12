@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import * as NotesActions from '../../actions/NotesActions';
 import NotesStore from '../../stores/NotesStore';
-import NoteCard from '../../components/notes/NoteCard';
+import NoteDetails from '../../components/notes/NoteDetails';
 
 class NoteDetailsPage extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class NoteDetailsPage extends Component {
   }
 
   componentWillMount() {
-    NotesActions.addChangeListener(this.onChange);
+    NotesStore.addChangeListener(this.onChange);
   }
 
   componentDidMount() {
@@ -22,12 +22,12 @@ class NoteDetailsPage extends Component {
   }
 
   componentWillUnmount() {
-    NotesActions.removeChangeListener(this.onChange);
+    NotesStore.removeChangeListener(this.onChange);
   }
 
   onChange() {
     this.setState({
-      user: NotesActions.getNote()
+      note: NotesStore.getNote()
     });
   }
 
@@ -35,7 +35,7 @@ class NoteDetailsPage extends Component {
     const { note } = this.state;
 
     return (
-      <UserDetails note={ note } />
+      <NoteDetails note={ note } />
     );
   }
 }

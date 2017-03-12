@@ -11,7 +11,7 @@ class NoteDetails extends Component {
         <dt class="col-sm-3">Group</dt>
         <dd class="col-sm-9">{ note.group }</dd>
         <dt class="col-sm-3">Updated at</dt>
-        <dd class="col-sm-9">{ user.updatedAt }</dd>
+        <dd class="col-sm-9">{ note.updatedAt }</dd>
       </dl>
     );
   }
