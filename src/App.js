@@ -8,6 +8,7 @@ import UsersListPage from './pages/users/UsersListPage';
 import UserCardPage from './pages/users/UserCardPage';
 import GroupsListPage from './pages/groups/GroupsListPage';
 import NotesListPage from './pages/notes/NotesListPage';
+import NoteCardPage from './pages/notes/NoteCardPage';
 
 class App extends Component {
   static propTypes = {
@@ -26,7 +27,10 @@ class App extends Component {
             <Route path=":id" component={UserCardPage}></Route>
           </Route>
           <Route path="groups" component={GroupsListPage}></Route>
-          <Route path="notes" component={NotesListPage}></Route>
+          <Route path="notes">
+            <IndexRoute component={NotesListPage}></IndexRoute>
+            <Route path=":id" component={NoteCardPage}></Route>
+          </Route>
           <Route path="profile" component={ProfilePage}></Route>
         </Route>
       </Router>
