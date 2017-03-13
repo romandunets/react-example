@@ -1,30 +1,31 @@
 import ActionTypes from '../constants/ActionTypes';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import { createStore, merge } from '../utils/StoreUtils';
+import BaseStore from './BaseStore';
 
 let _users = [];
 let _user = {};
 
-const UserStore = createStore({
+class UsersStore extends BaseStore {
+  register (action) {
+    switch(action.type) {
+      case ActionTypes.LIST_USERS_SUCCESS:
+        _users = action.data;
+        console.log(_users);
+        this.emitChange();
+        break;
+      case ActionTypes.GET_USER_SUCCESS:
+        _user = action.data;
+        this.emitChange();
+        break;
+    }
+  }
+
   listUsers() {
     return _users;
-  },
+  }
+
   getUser() {
     return _user;
   }
-});
+}
 
-UserStore.dispatchToken = AppDispatcher.register(action => {
-  switch(action.actionType) {
-    case ActionTypes.LIST_USERS_SUCCESS:
-      _users = action.data;
-      UserStore.emitChange();
-      break;
-    case ActionTypes.GET_USER_SUCCESS:
-      _user = action.data;
-      UserStore.emitChange();
-      break;
-  }
-});
-
-export default UserStore;
+export default new UsersStore;
