@@ -1,7 +1,6 @@
 import { EventEmitter } from 'events';
+import ActionTypes from '../constants/ActionTypes';
 import AppDispatcher from '../dispatcher/AppDispatcher';
-
-var CHANGE_EVENT = 'change';
 
 class BaseStore extends EventEmitter {
   constructor () {
@@ -11,15 +10,15 @@ class BaseStore extends EventEmitter {
   }
 
   emitChange () {
-    this.emit(CHANGE_EVENT);
+    this.emit(ActionTypes.CHANGE_EVENT);
   }
 
   addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback);
+    this.on(ActionTypes.CHANGE_EVENT, callback);
   }
 
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
+    this.removeListener(ActionTypes.CHANGE_EVENT, callback);
   }
 }
 

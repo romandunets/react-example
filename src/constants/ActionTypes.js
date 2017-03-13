@@ -1,6 +1,8 @@
 import keyMirror from 'keymirror';
 
 export default keyMirror({
+  CHANGE_EVENT: null,
+
   LIST_USERS_REQUEST: null,
   LIST_USERS_SUCCESS: null,
   LIST_USERS_FAILURE: null,
