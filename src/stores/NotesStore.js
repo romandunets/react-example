@@ -11,7 +11,7 @@ class NotesStore extends BaseStore {
         _notes = action.data;
         this.emitChange();
         break;
-      case ActionTypes.GET_USER_SUCCESS:
+      case ActionTypes.GET_NOTE_SUCCESS:
         _note = action.data;
         this.emitChange();
         break;
@@ -27,4 +27,6 @@ class NotesStore extends BaseStore {
   }
 }
 
-export default new NotesStore;
+const notesStore = new NotesStore();
+
+export default notesStore;

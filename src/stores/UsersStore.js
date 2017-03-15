@@ -27,4 +27,5 @@ class UsersStore extends BaseStore {
   }
 }
 
-export default new UsersStore;
+const usersStore = new UsersStore();
+export default usersStore;
