@@ -28,5 +28,4 @@ class NotesStore extends BaseStore {
 }
 
 const notesStore = new NotesStore();
-
 export default notesStore;

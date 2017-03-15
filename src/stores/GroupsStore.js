@@ -1,22 +1,31 @@
 import ActionTypes from '../constants/ActionTypes';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import { createStore, merge } from '../utils/StoreUtils';
+import BaseStore from './BaseStore';
 
-const _groups = [];
+let _groups = [];
+let _group= {};
 
-const GroupStore = createStore({
+class GroupStore extends BaseStore {
+  register (action) {
+    switch(action.type) {
+      case ActionTypes.LIST_GROUPS_SUCCESS:
+        _groups = action.data;
+        this.emitChange();
+        break;
+      case ActionTypes.GET_GROUP_SUCCESS:
+        _group = action.data;
+        this.emitChange();
+        break;
+    }
+  }
+
   listGroups() {
     return _groups;
   }
-});
 
-GroupStore.dispatchToken = AppDispatcher.register(action => {
-  switch(action.actionType) {
-    case ActionTypes.LIST_GROUPS_SUCCESS:
-      merge(_groups, action.data);
-      GroupStore.emitChange();
-      break;
+  getGroup() {
+    return _group;
   }
-});
+}
 
-export default GroupStore;
+const groupStore = new GroupStore();
+export default groupStore;
