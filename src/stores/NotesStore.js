@@ -1,30 +1,30 @@
 import ActionTypes from '../constants/ActionTypes';
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import { createStore, merge } from '../utils/StoreUtils';
+import BaseStore from './BaseStore';
 
 let _notes = [];
 let _note = {};
 
-const NoteStore = createStore({
+class NotesStore extends BaseStore {
+  register (action) {
+    switch(action.type) {
+      case ActionTypes.LIST_NOTES_SUCCESS:
+        _notes = action.data;
+        this.emitChange();
+        break;
+      case ActionTypes.GET_USER_SUCCESS:
+        _note = action.data;
+        this.emitChange();
+        break;
+    }
+  }
+
   listNotes() {
     return _notes;
-  },
+  }
+
   getNote() {
     return _note;
   }
-});
+}
 
-NoteStore.dispatchToken = AppDispatcher.register(action => {
-  switch(action.type) {
-    case ActionTypes.LIST_NOTES_SUCCESS:
-      merge(_notes, action.data);
-      NoteStore.emitChange();
-      break;
-    case ActionTypes.GET_NOTE_SUCCESS:
-      _note = action.data;
-      NoteStore.emitChange();
-      break;
-  }
-});
-
-export default NoteStore;
+export default new NotesStore;

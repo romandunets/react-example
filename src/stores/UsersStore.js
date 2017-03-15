@@ -9,7 +9,6 @@ class UsersStore extends BaseStore {
     switch(action.type) {
       case ActionTypes.LIST_USERS_SUCCESS:
         _users = action.data;
-        console.log(_users);
         this.emitChange();
         break;
       case ActionTypes.GET_USER_SUCCESS:
