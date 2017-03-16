@@ -3,11 +3,11 @@ import { Link } from 'react-router';
 
 class UserListItem extends Component {
   render() {
-    const { id, username } = this.props;
+    const { ...user } = this.props;
 
     return (
       <tr>
-        <td><Link to={`/users/${id}`}>{ username }</Link></td>
+        <td><Link to={`/users/${user.id}`}>{ user.username }</Link></td>
       </tr>
     );
   }

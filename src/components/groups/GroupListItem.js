@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class GroupListItem extends Component {
   render() {
-    const { name, description, notesCount } = this.props;
+    const { ...group } = this.props;
 
     return (
       <tr>
-        <td>{name}</td>
-        <td>{description}</td>
-        <td>{notesCount} notes</td>
+        <td>{ group.name }</td>
+        <td>{ group.description }</td>
+        <td>{ group.notesCount } notes</td>
       </tr>
     );
   }

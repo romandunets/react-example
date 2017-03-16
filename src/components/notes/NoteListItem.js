@@ -3,13 +3,13 @@ import { Link } from 'react-router';
 
 class NoteListItem extends Component {
   render() {
-    const { id, name, group, updatedAt } = this.props;
+    const { ...note } = this.props;
 
     return (
       <tr>
-        <td><Link to={`/notes/${id}`}>{ name }</Link></td>
-        <td>{group}</td>
-        <td>{updatedAt}</td>
+        <td><Link to={`/notes/${note.id}`}>{ note.name }</Link></td>
+        <td>{ note.group }</td>
+        <td>{ note.updatedAt }</td>
       </tr>
     );
   }
