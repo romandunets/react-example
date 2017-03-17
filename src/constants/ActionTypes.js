@@ -15,6 +15,10 @@ export default keyMirror({
   LIST_GROUPS_SUCCESS: null,
   LIST_GROUPS_FAILURE: null,
 
+  GET_GROUP_REQUEST: null,
+  GET_GROUP_SUCCESS: null,
+  GET_GROUP_FAILURE: null,
+
   LIST_NOTES_REQUEST: null,
   LIST_NOTES_SUCCESS: null,
   LIST_NOTES_FAILURE: null,
