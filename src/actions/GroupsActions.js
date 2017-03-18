@@ -9,3 +9,11 @@ export function listGroups() {
     failure: ActionTypes.LIST_GROUPS_FAILURE
   });
 }
+
+export function getGroup(id) {
+  dispatchAsync(groupApi.getGroup(id), {
+    request: ActionTypes.GET_GROUP_REQUEST,
+    success: ActionTypes.GET_GROUP_SUCCESS,
+    failure: ActionTypes.GET_GROUP_FAILURE
+  });
+}
