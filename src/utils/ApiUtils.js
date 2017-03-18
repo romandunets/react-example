@@ -6,7 +6,7 @@ export function dispatchAsync(promise, types) {
   AppDispatcher.dispatch(request);
   promise
     .then(response => AppDispatcher.dispatch({
-      actionType: success,
+      type: success,
       data: response.data
     }))
     .catch(error => AppDispatcher.dispatch(success, { error }));
