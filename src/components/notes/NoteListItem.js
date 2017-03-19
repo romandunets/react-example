@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 class NoteListItem extends Component {
   render() {
-    const { ...note } = this.props;
+    const { note } = this.props;
 
     return (
       <tr onClick={ (e) => browserHistory.push(`notes/${note.id}`) }>

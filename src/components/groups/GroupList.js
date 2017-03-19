@@ -6,7 +6,7 @@ class GroupList extends Component {
     const { groups } = this.props;
 
     const GroupListItems = groups.map((group) => {
-      return <GroupListItem key={group.id} {...group} />;
+      return <GroupListItem key={group.id} group={group} />;
     });
 
     return (

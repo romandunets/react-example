@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 class UserListItem extends Component {
   render() {
-    const { ...user } = this.props;
+    const { user } = this.props;
 
     return (
       <tr onClick={ (e) => browserHistory.push(`users/${user.id}`) }>

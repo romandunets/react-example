@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 
 class GroupListItem extends Component {
   render() {
-    const { ...group } = this.props;
+    const { group } = this.props;
 
     return (
       <tr onClick={ (e) => browserHistory.push(`groups/${group.id}`) }>
