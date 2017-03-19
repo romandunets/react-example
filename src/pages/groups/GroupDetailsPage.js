@@ -27,7 +27,7 @@ class GroupDetailsPage extends Component {
 
   onChange() {
     this.setState({
-      group: GroupsStore.getNote()
+      group: GroupsStore.getGroup()
     });
   }
 
