@@ -2,25 +2,43 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 
 class UserForm extends Component {
 
-  createUser(e) {
+  constructor() {
+    super();
+    
+    this.state = {
+      user: {}
+    };
+  }
+
+  getUser() {
+    return this.state.user;
+  }
+
+  onUsernameInputChange(e) {
+    let usernameInputValue = e.target.value;
+    this.updateUser({ username: usernameInputValue });
+  }
+
+  updateUser(attribute) {
+    let user = this.state.user;
+    let attr = Object.keys(attribute)[0];
+    user[attr] = attribute[attr];
+    this.setState({ user: user });
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
     
-    let username = React.findDOMNode(this.refs.item_title).value.trim();
-    
-    React.findDOMNode(this.refs.item_title).value = '';
-    
-    AppDispatcher.dispatch({
-      action: 'add-item',
-      user: {
-        username: username
-      }
-    });
+    let user = this.getUser();
+    UsersActions.createUser(user);
   }
 
   render() {
     return (
-      <form onSubmit={ this.createUser.bind(this) }>
-        <input type="text" ref="username"/>
+      <form onSubmit={ this.handleSubmit }>
+        <input
+          value={this.state.usernameInputValue}
+          onChange={this.onUsernameInputChange} />
         <button>Create</button>
       </form>
     );
