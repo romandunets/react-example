@@ -6,6 +6,7 @@ import HomePage from './pages/home/HomePage';
 import ProfilePage from './pages/users/ProfilePage';
 import UsersListPage from './pages/users/UsersListPage';
 import UserDetailsPage from './pages/users/UserDetailsPage';
+import NewUserPage from './pages/users/NewUserPage';
 import GroupsListPage from './pages/groups/GroupsListPage';
 import GroupDetailsPage from './pages/groups/GroupDetailsPage';
 import NotesListPage from './pages/notes/NotesListPage';
@@ -25,6 +26,7 @@ class App extends Component {
           <IndexRoute component={HomePage}></IndexRoute>
           <Route path="users">
             <IndexRoute component={UsersListPage}></IndexRoute>
+            <Route path="new" component={NewUserPage}></Route>
             <Route path=":id" component={UserDetailsPage}></Route>
           </Route>
           <Route path="groups">
