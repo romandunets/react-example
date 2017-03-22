@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import * as UsersActions from '../../actions/UsersActions';
 import UsersStore from '../../stores/UsersStore';
@@ -35,7 +36,10 @@ class UsersListPage extends Component {
     const { users } = this.state;
 
     return (
-      <UserList users={ users } />
+      <div>
+        <Link to="users/new">New user</Link>
+        <UserList users={ users } />
+      </div>
     );
   }
 }
