@@ -1,7 +1,7 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
+import React, { Component } from 'react';
+import AppDispatcher from '../../dispatcher/AppDispatcher';
 
 class UserForm extends Component {
-
   constructor() {
     super();
     
@@ -10,13 +10,14 @@ class UserForm extends Component {
     };
   }
 
-  getUser() {
-    return this.state.user;
+  handleSubmit(e) {
+    e.preventDefault();
+    let user = this.getUser();
+    this.props.handleSubmit(user);
   }
 
-  onUsernameInputChange(e) {
-    let usernameInputValue = e.target.value;
-    this.updateUser({ username: usernameInputValue });
+  getUser() {
+    return this.state.user;
   }
 
   updateUser(attribute) {
@@ -26,21 +27,21 @@ class UserForm extends Component {
     this.setState({ user: user });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    
-    let user = this.getUser();
-    UsersActions.createUser(user);
+  onUsernameInputChange(e) {
+    let usernameInputValue = e.target.value;
+    this.updateUser({ username: usernameInputValue });
   }
 
   render() {
     return (
-      <form onSubmit={ this.handleSubmit }>
+      <form onSubmit={ this.handleSubmit.bind(this) }>
         <input
-          value={this.state.usernameInputValue}
-          onChange={this.onUsernameInputChange} />
+          value={ this.state.usernameInputValue }
+          onChange={ this.onUsernameInputChange.bind(this) } />
         <button>Create</button>
       </form>
     );
   }
 }
+
+export default UserForm;
