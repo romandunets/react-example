@@ -37,6 +37,11 @@ class UserForm extends Component {
     this.updateUser({ firstName: firstNameInputValue });
   }
 
+  onLastNameInputChange(e) {
+    let lastNameInputValue = e.target.value;
+    this.updateUser({ lastName: lastNameInputValue });
+  }
+
   render() {
     return (
       <form onSubmit={ this.handleSubmit.bind(this) }>
@@ -50,6 +55,11 @@ class UserForm extends Component {
           name="firstName"
           value={ this.state.firstNameInputValue }
           onChange={ this.onFirstNameInputChange.bind(this) } />
+        <label htmlFor="lastName">Last name</label>
+        <input
+          name="lastName"
+          value={ this.state.lastNameInputValue }
+          onChange={ this.onLastNameInputChange.bind(this) } />
         <button>Create</button>
       </form>
     );
