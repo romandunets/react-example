@@ -11,6 +11,10 @@ export default keyMirror({
   GET_USER_SUCCESS: null,
   GET_USER_FAILURE: null,
 
+  CREATE_USER_REQUEST: null,
+  CREATE_USER_SUCCESS: null,
+  CREATE_USER_FAILURE: null,
+
   LIST_GROUPS_REQUEST: null,
   LIST_GROUPS_SUCCESS: null,
   LIST_GROUPS_FAILURE: null,
