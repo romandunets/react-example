@@ -1,3 +1,6 @@
+import { browserHistory } from 'react-router';
+
+import AppDispatcher from '../dispatcher/AppDispatcher';
 import ActionTypes from '../constants/ActionTypes';
 import userApi from '../api/UserApi';
 import { dispatchAsync } from '../utils/ApiUtils';
@@ -19,9 +22,15 @@ export function getUser(id) {
 }
 
 export function createUser(user) {
-  dispatchAsync(userApi.createUser(user), {
-    request: ActionTypes.CREATE_USER_REQUEST,
-    success: ActionTypes.CREATE_USER_SUCCESS,
-    failure: ActionTypes.CREATE_USER_FAILURE
-  });
+  AppDispatcher.dispatch(ActionTypes.CREATE_USER_REQUEST);
+  userApi.createUser(user)
+    .then(response => {
+        let id = response.data.id;
+        AppDispatcher.dispatch({
+          type: ActionTypes.CREATE_USER_SUCCESS,
+          data: response.data
+        });
+        browserHistory.push(`/users/${id}`);
+      })
+    .catch(error => AppDispatcher.dispatch(CREATE_USER_FAILURE, { error }));
 }
