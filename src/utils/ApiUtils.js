@@ -9,5 +9,5 @@ export function dispatchAsync(promise, types) {
       type: success,
       data: response.data
     }))
-    .catch(error => AppDispatcher.dispatch(success, { error }));
+    .catch(error => AppDispatcher.dispatch(failure, { error }));
 }
